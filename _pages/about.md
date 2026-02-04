@@ -13,30 +13,15 @@ redirect_from:
   object-fit: cover;
   border-radius: 50%;
 }
-
-  /* Icon base styling */
-.section-icon {
-  margin-right: 8px;
-}
-
-/* Section-specific colors */
-.icon-about { color: #1f77b4; }        /* blue */
-.icon-research { color: #9467bd; }     /* purple */
-.icon-education { color: #2ca02c; }    /* green */
-.icon-awards { color: #ff7f0e; }        /* orange */
-.icon-services { color: #d62728; }      /* red */
-.icon-publication { color: #17becf; }   /* cyan */
-.icon-journal { color: #8c564b; }       /* brown */
-.icon-conference { color: #e377c2; }    /* pink */
 </style>
-  </style>
+
 
 Hi, I am a researcher focused on privacy-preserving distributed machine learning, with particular expertise in Federated Learning, Federated Unlearning, and Semantic Communication. I obtained my *Master of Science in Computer Science and Technology* from [Dalian University of Technology, China](https://www.dlut.edu.cn/), where my research focused on federated learning and unlearning. My work has been published in leading journals and conferences, including *IEEE Transactions on Mobile Computing*, *Neural Networks*, *IEEE Transactions on Sustainable Computing*, and *IEEE/ACM IWQoS*. I have received multiple academic distinctions, including the **Outstanding Master’s Thesis Award** and **Outstanding Graduate Award**, and I actively serve as a reviewer for top-tier IEEE, Elsevier, and ACM venues.  
 
 I am currently seeking a **PhD research position** to further advance research on **trustworthy, privacy-preserving, and federated semantic communication**, with the long-term goal of contributing impactful theoretical and applied research to next-generation intelligent and distributed computing infrastructures.
 
 
-## <i class="fas fa-brain"></i> Research Interests
+## <i class="fas fa-brain" style="color:#8E44AD;"></i> Research Interests
 
 - Distributed machine learning  
 - Federated Learning
@@ -45,7 +30,7 @@ I am currently seeking a **PhD research position** to further advance research o
 
 
 
-## <i class="fas fa-graduation-cap"></i> Education
+## <i class="fas fa-graduation-cap" style="color:#1E8449;"></i> Education
 
 - **Master of Science in Computer Science and Technology (MSCS)**  
   Dalian University of Technology, China  
@@ -57,7 +42,7 @@ I am currently seeking a **PhD research position** to further advance research o
   Bahria University, Islamabad, Pakistan  
   *Feb 2017 – Feb 2021*  
 
-## <i class="fas fa-award"></i> Selected Awards and Honors
+## <i class="fas fa-award" style="color:#D4AC0D;"></i> Selected Awards and Honors
 
 - Outstanding Master’s Thesis Award, School of Computer Science and Technology, Dalian University of Technology, 2025  
 - Outstanding Graduate Award (Top 5%), School of International Education, Dalian University of Technology, 2025  
@@ -71,9 +56,10 @@ I am currently seeking a **PhD research position** to further advance research o
 
 
 
-## <i class="fas fa-hands-helping"></i> Academic and Professional Services
+## <i class="fas fa-hands-helping" style="color:#2874A6;"></i> Academic and Professional Services
 
-### <i class="fas fa-book"></i> *Journal Reviewer*
+### <i class="fas fa-book" style="color:#5DADE2;"></i> *Journal Reviewer*
+
 - IEEE Transactions on Information Forensics and Security (TIFS)  
 - IEEE Transactions on Sustainable Computing (TSUSC)  
 - *Neural Networks* (Elsevier)  
@@ -81,11 +67,11 @@ I am currently seeking a **PhD research position** to further advance research o
 - ACM Transactions on Privacy and Security (TOPS)  
 - Advances in Science, Technology and Engineering Systems Journal (ASTESJ)  
 
-### <i class="fas fa-users"></i> *Conference Reviewer*
+### <i class="fas fa-users" style="color:#48C9B0;"></i>  *Conference Reviewer*
 - IEEE International Conference on Computer, Information, and Telecommunication Systems (CITS)  
 - IEEE International Conference on Electrical, Computer, and Energy Technologies (ICECET)  
 
-### <i class="fas fa-chalkboard-teacher"></i> *Conference Organization*
+### <i class="fas fa-chalkboard-teacher" style="color:#AF7AC5;"></i> *Conference Organization*
 - Session Chair, IEEE International Conference on Mobility, Sensing and Networking (MSN)  
 
 
