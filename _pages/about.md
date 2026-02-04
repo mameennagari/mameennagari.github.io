@@ -7,6 +7,14 @@ redirect_from:
   - /about.html
 ---
 
+<style>
+.author__avatar img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 I am a computer science researcher specializing in **privacy-preserving distributed machine learning**, with primary research interests in **Federated Learning**, **Federated Unlearning**, and **trustworthy distributed intelligence**. I obtained my **Master of Science in Computer Science and Technology** from **Dalian University of Technology, China**, where my research focused on robustness optimization in federated unlearning systems. My work has been published in leading journals and conferences, including *IEEE Transactions on Mobile Computing*, *Neural Networks*, *IEEE Transactions on Sustainable Computing*, and *IEEE/ACM IWQoS*. I have received multiple academic distinctions, including the **Outstanding Master’s Thesis Award** and **Outstanding Graduate Award**, and I actively serve as a reviewer for top-tier IEEE, Elsevier, and ACM venues.  
 
 I am currently seeking a **PhD research position** to further advance research on **trustworthy, privacy-preserving, and scalable machine learning systems**, with the long-term goal of contributing impactful theoretical and applied research to next-generation intelligent and distributed computing infrastructures.
