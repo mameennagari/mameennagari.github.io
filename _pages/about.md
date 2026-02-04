@@ -6,10 +6,17 @@ redirect_from:
   - /about/
   - /about.html
 ---
+Hello I am a computer science researcher specializing in privacy-preserving distributed machine learning, with a particular focus on Federated Learning, Federated Unlearning, and trustworthy distributed intelligence. I obtained my Master of Science in Computer Science and Technology from Dalian University of Technology (DUT), China, where my research concentrated on enhancing model robustness and reliability in federated unlearning systems.
 
-This is the front page of a website that is powered by the [Academic Pages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the repository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. Incidentally, these same features make it a great template for anyone that needs to show off a professional template!
+My research contributions have been published in top-tier and highly selective venues, including IEEE Transactions on Mobile Computing, Neural Networks, and IEEE Transactions on Sustainable Computing, as well as reputable international conferences such as IEEE/ACM IWQoS and IEEE MSN. These works address critical challenges in distributed learning systems, including unreliable client behavior, fairness-aware unlearning, robustness optimization, and efficient unlearning mechanisms for large-scale and resource-constrained environments.
 
- You can fork [this template](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and Markdown files, add your own PDFs and other content, and have your own site for free, with no ads!
+During my master’s studies, my thesis titled “Research on Model Robustness Optimized Federated Unlearning” was recognized with the Outstanding Master’s Thesis Award, and I graduated within the top 5% of my cohort, receiving the Outstanding Graduate Award. In addition, I have received multiple national- and provincial-level academic awards for research excellence, innovation, and scholarly presentations.
+
+Beyond publications, I actively contribute to the academic community as a peer reviewer for leading journals and conferences published by IEEE, Elsevier, and ACM, including IEEE Transactions on Information Forensics and Security, Neural Networks, and ACM Transactions on Privacy and Security. These professional services have strengthened my engagement with cutting-edge research trends and reinforced my commitment to research integrity and quality.
+
+Technically, I have strong experience in Python-based machine learning development, particularly using PyTorch and NumPy, with hands-on expertise in implementing federated learning pipelines, unlearning algorithms, distributed training workflows, and privacy-aware model evaluation. I also bring over two years of professional industry experience, which complements my academic research with practical system-level understanding.
+
+I am currently seeking a PhD research position to further advance research on trustworthy, privacy-preserving, and scalable machine learning systems, with the long-term goal of contributing impactful theoretical and applied research to next-generation intelligent and distributed computing infrastructures.
 
 A data-driven personal website
 ======
