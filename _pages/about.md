@@ -1,6 +1,5 @@
 ---
 permalink: /
-title: "<i class='fas fa-user-graduate'></i> About"
 author_profile: true
 redirect_from: 
   - /about/
