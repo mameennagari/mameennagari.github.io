@@ -4,127 +4,147 @@ permalink: /gallery/
 author_profile: true
 ---
 <hr>
+
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f9f9f9;
-    margin: 0;
-    padding: 0;
-  }
+/* Award grid */
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
 
-  h1, h2 {
-    text-align: center;
-    margin: 20px 0;
-  }
+/* Thumbnail */
+.award-thumb {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  cursor: zoom-in;
+  transition: transform 0.25s ease;
+}
 
-  /* Section headings */
-  h2 {
-    margin-top: 40px;
-  }
+.award-thumb:hover {
+  transform: scale(1.04);
+}
 
-  /* Gallery Grid */
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    max-width: 1000px;
-    margin: 0 auto 50px auto;
-    padding: 0 15px;
-  }
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  padding-top: 60px;
+}
 
-  .gallery img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
+.lightbox img {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 8px;
+}
 
-  .gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  }
+.lightbox:target {
+  display: block;
+}
 
-  /* Lightbox Overlay */
-  .lightbox {
-    display: none;
-    position: fixed;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-  }
-
-  .lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
-    transition: transform 0.3s;
-  }
-  .lightbox:active img {
-    transform: scale(0.95);
-  }
-
-  @media(max-width:600px) {
-    .gallery {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
-  }
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 32px;
+  text-decoration: none;
+  font-weight: bold;
+}
 </style>
-</head>
-<body>
 
-<h1>My Academic Gallery</h1>
+<h1> <i class="fas fa-award" style="color:#ff7f0e; margin-right:8px;"></i>
+  Selected Awards and Honors </h1>
+<div class="awards-grid">
 
-<h2>Undergraduate</h2>
-<div class="gallery" id="undergrad-gallery">
-  <img src="/images/o.jpg" alt="Undergraduate 1">
-  <img src="/images/o.jpg" alt="Undergraduate 2">
-  <img src="/images/o.jpg" alt="Undergraduate 3">
+  <!-- Award 1 -->
+  <div style="text-align:center;">
+    <a href="#award-thesis">
+      <img src="/images/3.jpg" class="award-thumb" alt="Outstanding Master's Thesis Award">
+    </a>
+    <p style="margin-top:10px; font-weight:600;">Outstanding Master’s Thesis Award</p>
+    <p style="font-size:14px; color:#666;">Dalian University of Technology, 2025</p>
+  </div>
+
+  <!-- Award 2 -->
+  <div style="text-align:center;">
+    <a href="#award-graduate">
+      <img src="/images/4.jpg" class="award-thumb" alt="Outstanding Graduate Award">
+    </a>
+    <p style="margin-top:10px; font-weight:600;">Outstanding Graduate Award (Top 5%)</p>
+    <p style="font-size:14px; color:#666;">DUT, 2025</p>
+  </div>
+
+  <!-- Award 3 -->
+  <div style="text-align:center;">
+    <a href="#award-challengecup">
+      <img src="/images/2.jpg" class="award-thumb" alt="Challenge Cup Special Prize">
+    </a>
+    <p style="margin-top:10px; font-weight:600;">Special Prize – Challenge Cup</p>
+    <p style="font-size:14px; color:#666;">Liaoning Province, 2025</p>
+  </div>
+
+  <!-- Award 4 -->
+  <div style="text-align:center;">
+    <a href="#award-forum">
+      <img src="/images/1.jpg" class="award-thumb" alt="Graduate Academic Forum">
+    </a>
+    <p style="margin-top:10px; font-weight:600;">First Prize – Graduate Academic Forum</p>
+    <p style="font-size:14px; color:#666;">National Level, 2025</p>
+  </div>
+
+  <!-- Award 5 -->
+  <div style="text-align:center;">
+    <a href="#award-ai">
+      <img src="/images/1.jpg" class="award-thumb" alt="AI Competition Award">
+    </a>
+    <p style="margin-top:10px; font-weight:600;">Second Prize – AI+ Track</p>
+    <p style="font-size:14px; color:#666;">China Mobile National Competition, 2025</p>
+  </div>
+
+  <!-- Award 6 -->
+  <div style="text-align:center;">
+    <a href="#award-gold">
+      <img src="/images/6.jpg" class="award-thumb" alt="Gold Medal Innovation Competition">
+    </a>
+    <p style="margin-top:10px; font-weight:600;">Gold Medal – Innovation Competition</p>
+    <p style="font-size:14px; color:#666;">Liaoning Province Edu, 2024</p>
+  </div>
+
+  <!-- Award 7 -->
+  <div style="text-align:center;">
+    <a href="#award-academicstar">
+      <img src="/images/1.jpg" class="award-thumb" alt="Academic Star Award">
+    </a>
+    <p style="margin-top:10px; font-weight:600;">Academic Star Award</p>
+    <p style="font-size:14px; color:#666;">DUT, 2024</p>
+  </div>
+
+  <!-- Award 8 -->
+  <div style="text-align:center;">
+    <a href="#award-sessionchair">
+      <img src="/images/5.jpg" class="award-thumb" alt="Session Chair Certificate">
+    </a>
+    <p style="margin-top:10px; font-weight:600;">Session Chair</p>
+    <p style="font-size:14px; color:#666;">IEEE MSN, 2024</p>
+  </div>
+
 </div>
 
-<h2>Postgraduate</h2>
-<div class="gallery" id="postgrad-gallery">  
-    <img src="/images/o.jpg" alt="Under-Grad Graduation">
-  <img src="images/e.jpg" alt="Conference 1">
-  <img src="images/i.jpg" alt="Conference 2">
-  <img src="images/n.jpg" alt="Lab Work">
-  <img src="images/f.jpg" alt="Project Presentation">
-  <img src="images/b.jpg" alt="Project Presentation">
-  <img src="images/a.jpg" alt="Project Presentation">
-</div>
-
-<h2>PhD</h2>
-<div class="gallery" id="phd-gallery">
-  <img src="images/phd1.jpg" alt="PhD 1">
-  <img src="images/phd2.jpg" alt="PhD 2">
-  <img src="images/phd3.jpg" alt="PhD 3">
-</div>
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img" src="" alt="">
-</div>
-
-<script>
-  // Select all images in all galleries
-  const galleryImages = document.querySelectorAll('.gallery img');
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-
-  galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
-      lightbox.style.display = 'flex';
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-    });
-  });
-
-  function closeLightbox() {
-    lightbox.style.display = 'none';
-  }
-</script>
+<!-- Lightboxes -->
+<div id="award-thesis" class="lightbox"><a href="#" class="lightbox-close">&times;</a><img src="/images/3.jpg"></div>
+<div id="award-graduate" class="lightbox"><a href="#" class="lightbox-close">&times;</a><img src="/images/4.jpg"></div>
+<div id="award-challengecup" class="lightbox"><a href="#" class="lightbox-close">&times;</a><img src="/images/2.jpg"></div>
+<div id="award-forum" class="lightbox"><a href="#" class="lightbox-close">&times;</a><img src="/images/1.jpg"></div>
+<div id="award-ai" class="lightbox"><a href="#" class="lightbox-close">&times;</a><img src="/images/1.jpg"></div>
+<div id="award-gold" class="lightbox"><a href="#" class="lightbox-close">&times;</a><img src="/images/6.jpg"></div>
+<div id="award-academicstar" class="lightbox"><a href="#" class="lightbox-close">&times;</a><img src="/images/1.jpg"></div>
+<div id="award-sessionchair" class="lightbox"><a href="#" class="lightbox-close">&times;</a><img src="/images/5.jpg"></div>
