@@ -12,6 +12,7 @@ body {
   background: #f9f9f9;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 h1, h2 {
@@ -47,6 +48,7 @@ h1 i {
   box-shadow: 0 6px 15px rgba(0,0,0,0.15);
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  transform-origin: center center;
 }
 
 .award-thumb:hover {
@@ -68,7 +70,7 @@ h1 i {
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
 }
 
 .lightbox.active {
@@ -81,6 +83,15 @@ h1 i {
   max-height: 85%;
   border-radius: 10px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  transform: scale(0.8);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              opacity 0.4s ease;
+}
+
+.lightbox.active img {
+  transform: scale(1);
+  opacity: 1;
 }
 
 /* Lightbox navigation buttons */
@@ -94,52 +105,91 @@ h1 i {
   cursor: pointer;
   user-select: none;
   padding: 10px;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   z-index: 10000;
   background: rgba(0,0,0,0.3);
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transform: translateY(-50%) scale(0.8);
+}
+
+.lightbox.active .lightbox-nav {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
 }
 
 .lightbox-nav:hover {
   color: #ff7f0e;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.7);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .lightbox-prev {
-  left: 20px;
+  left: 30px;
+  transition-delay: 0.2s;
 }
 
 .lightbox-next {
-  right: 20px;
+  right: 30px;
+  transition-delay: 0.3s;
 }
 
 .lightbox-close {
   position: absolute;
-  top: 20px;
-  right: 35px;
+  top: 25px;
+  right: 40px;
   color: #fff;
   font-size: 32px;
   font-weight: bold;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   z-index: 10000;
   background: rgba(0,0,0,0.3);
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.lightbox.active .lightbox-close {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.1s;
 }
 
 .lightbox-close:hover {
   color: #ff7f0e;
+  background: rgba(0,0,0,0.7);
+  transform: scale(1.1);
+}
+
+/* Image counter */
+.lightbox-counter {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 16px;
   background: rgba(0,0,0,0.5);
+  padding: 8px 16px;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox.active .lightbox-counter {
+  opacity: 1;
+  transition-delay: 0.4s;
 }
 
 @media(max-width:600px) {
@@ -148,8 +198,18 @@ h1 i {
   }
   .lightbox-nav {
     font-size: 30px;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
+  }
+  .lightbox-prev {
+    left: 15px;
+  }
+  .lightbox-next {
+    right: 15px;
+  }
+  .lightbox-close {
+    top: 15px;
+    right: 20px;
   }
 }
 </style>
@@ -201,6 +261,9 @@ h1 i {
   <span class="lightbox-nav lightbox-prev">&#10094;</span>
   <span class="lightbox-nav lightbox-next">&#10095;</span>
   <img id="lightbox-img" src="" alt="">
+  <div class="lightbox-counter">
+    <span id="current-index">1</span> / <span id="total-images">18</span>
+  </div>
 </div>
 
 <script>
@@ -213,44 +276,136 @@ const lightboxImg = document.getElementById('lightbox-img');
 const closeBtn = document.querySelector('.lightbox-close');
 const prevBtn = document.querySelector('.lightbox-prev');
 const nextBtn = document.querySelector('.lightbox-next');
+const currentIndexSpan = document.getElementById('current-index');
+const totalImagesSpan = document.getElementById('total-images');
+
+// Store clicked image position for zoom effect
+let clickedImageRect = null;
 
 // Collect ALL images from the page
 const allImages = document.querySelectorAll('.award-thumb');
+totalImagesSpan.textContent = allImages.length;
 
-// Open lightbox
+// Open lightbox with zoom effect
 function openLightbox(index) {
-  currentGallery = Array.from(allImages); // Convert NodeList to Array
+  currentGallery = Array.from(allImages);
   currentIndex = parseInt(index);
   
-  // Set the lightbox image source
-  lightboxImg.src = currentGallery[currentIndex].src;
-  lightboxImg.alt = currentGallery[currentIndex].alt;
+  // Get clicked image position
+  const clickedImage = currentGallery[currentIndex];
+  clickedImageRect = clickedImage.getBoundingClientRect();
+  
+  // Calculate initial position for zoom effect
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+  
+  // Set initial transform for zoom effect
+  lightboxImg.style.transform = `translate(${clickedImageRect.left}px, ${clickedImageRect.top}px) scale(${clickedImageRect.width / viewportWidth})`;
+  lightboxImg.style.borderRadius = '12px'; // Match thumbnail border radius
+  lightboxImg.style.transition = 'none'; // Disable transition for initial positioning
+  
+  // Set the image source
+  lightboxImg.src = clickedImage.src;
+  lightboxImg.alt = clickedImage.alt;
   
   // Show lightbox
   lightbox.classList.add('active');
-  
-  // Prevent body scroll
   document.body.style.overflow = 'hidden';
+  
+  // Update counter
+  updateCounter();
+  
+  // Force reflow for transition
+  void lightboxImg.offsetWidth;
+  
+  // Enable transition and zoom to center
+  lightboxImg.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-radius 0.5s ease, opacity 0.4s ease';
+  lightboxImg.style.transform = 'translate(0, 0) scale(1)';
+  lightboxImg.style.borderRadius = '10px';
+  lightboxImg.style.opacity = '1';
 }
 
-// Show previous image
+// Update image counter
+function updateCounter() {
+  currentIndexSpan.textContent = currentIndex + 1;
+}
+
+// Show previous image with slide effect
 function showPrev() {
+  if (currentGallery.length === 0) return;
+  
   currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-  lightboxImg.src = currentGallery[currentIndex].src;
-  lightboxImg.alt = currentGallery[currentIndex].alt;
+  
+  // Slide out animation
+  lightboxImg.style.transform = 'translateX(100px) scale(0.8)';
+  lightboxImg.style.opacity = '0';
+  
+  setTimeout(() => {
+    lightboxImg.src = currentGallery[currentIndex].src;
+    lightboxImg.alt = currentGallery[currentIndex].alt;
+    updateCounter();
+    
+    // Slide in animation
+    lightboxImg.style.transform = 'translateX(-100px) scale(0.8)';
+    void lightboxImg.offsetWidth; // Force reflow
+    
+    lightboxImg.style.transform = 'translateX(0) scale(1)';
+    lightboxImg.style.opacity = '1';
+  }, 200);
 }
 
-// Show next image
+// Show next image with slide effect
 function showNext() {
+  if (currentGallery.length === 0) return;
+  
   currentIndex = (currentIndex + 1) % currentGallery.length;
-  lightboxImg.src = currentGallery[currentIndex].src;
-  lightboxImg.alt = currentGallery[currentIndex].alt;
+  
+  // Slide out animation
+  lightboxImg.style.transform = 'translateX(-100px) scale(0.8)';
+  lightboxImg.style.opacity = '0';
+  
+  setTimeout(() => {
+    lightboxImg.src = currentGallery[currentIndex].src;
+    lightboxImg.alt = currentGallery[currentIndex].alt;
+    updateCounter();
+    
+    // Slide in animation
+    lightboxImg.style.transform = 'translateX(100px) scale(0.8)';
+    void lightboxImg.offsetWidth; // Force reflow
+    
+    lightboxImg.style.transform = 'translateX(0) scale(1)';
+    lightboxImg.style.opacity = '1';
+  }, 200);
 }
 
-// Close lightbox
+// Close lightbox with reverse zoom effect
 function closeLightbox() {
-  lightbox.classList.remove('active');
-  document.body.style.overflow = 'auto';
+  if (!clickedImageRect) {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    return;
+  }
+  
+  // Calculate final position for reverse zoom
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+  
+  // Start reverse zoom animation
+  lightboxImg.style.transform = `translate(${clickedImageRect.left}px, ${clickedImageRect.top}px) scale(${clickedImageRect.width / viewportWidth})`;
+  lightboxImg.style.borderRadius = '12px';
+  lightboxImg.style.opacity = '0';
+  
+  // Hide lightbox after animation completes
+  setTimeout(() => {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    
+    // Reset transform for next opening
+    lightboxImg.style.transform = 'scale(0.8)';
+    lightboxImg.style.opacity = '0';
+    lightboxImg.style.borderRadius = '10px';
+    lightboxImg.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-radius 0.5s ease, opacity 0.4s ease';
+  }, 500);
 }
 
 // Add click event to ALL images
@@ -263,12 +418,12 @@ allImages.forEach((img) => {
 
 // Navigation buttons
 prevBtn.addEventListener('click', function(e) {
-  e.stopPropagation(); // Prevent event bubbling
+  e.stopPropagation();
   showPrev();
 });
 
 nextBtn.addEventListener('click', function(e) {
-  e.stopPropagation(); // Prevent event bubbling
+  e.stopPropagation();
   showNext();
 });
 
@@ -279,9 +434,8 @@ closeBtn.addEventListener('click', function(e) {
   closeLightbox();
 });
 
-// Close when clicking on the background (but not on image or buttons)
+// Close when clicking on the background
 lightbox.addEventListener('click', function(e) {
-  // Only close if clicking directly on the overlay background
   if (e.target === lightbox) {
     closeLightbox();
   }
@@ -297,9 +451,19 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
+// Handle window resize
+window.addEventListener('resize', function() {
+  if (lightbox.classList.contains('active')) {
+    // Recalculate clicked image position on resize
+    const clickedImage = currentGallery[currentIndex];
+    if (clickedImage) {
+      clickedImageRect = clickedImage.getBoundingClientRect();
+    }
+  }
+});
+
 // Optional: Add loading state for images
 allImages.forEach(img => {
-  // Add loading indicator
   img.addEventListener('load', function() {
     this.style.opacity = '1';
   });
@@ -310,7 +474,6 @@ allImages.forEach(img => {
     this.alt = 'Image failed to load';
   });
   
-  // Start with opacity 0 for smooth loading
   img.style.opacity = '0';
   img.style.transition = 'opacity 0.3s ease';
 });
