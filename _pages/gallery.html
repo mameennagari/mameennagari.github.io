@@ -67,6 +67,10 @@ h1 i {
   padding: 20px;
 }
 
+.lightbox.show {
+  display: flex !important; /* Override display: none */
+}
+
 .lightbox img {
   max-width: 90%;
   max-height: 85%;
@@ -79,7 +83,7 @@ h1 i {
   transform: scale(1.02);
 }
 
-/* === Lightbox navigation buttons === */
+/* Lightbox navigation buttons */
 .lightbox-nav {
   position: absolute;
   top: 50%;
@@ -136,9 +140,9 @@ h1 i {
 <div class="gallery-section">
   <h2>Undergraduate</h2>
   <div class="awards-grid" id="undergrad-gallery">
-    <img src="{{ site.baseurl }}/images/o.jpg" class="award-thumb" alt="">
-    <img src="{{ site.baseurl }}/images/b.jpg" class="award-thumb" alt="">
-    <img src="{{ site.baseurl }}/images/f.jpg" class="award-thumb" alt="">
+    <img src="/images/o.jpg" class="award-thumb" alt="Undergraduate award 1">
+    <img src="/images/o.jpg" class="award-thumb" alt="Undergraduate award 2">
+    <img src="/images/o.jpg" class="award-thumb" alt="Undergraduate award 3">
   </div>
 </div>
 
@@ -146,10 +150,18 @@ h1 i {
 <div class="gallery-section">
   <h2>Postgraduate</h2>
   <div class="awards-grid" id="postgrad-gallery">
-    <img src="{{ site.baseurl }}/images/k.jpg" class="award-thumb" alt="">
-    <img src="{{ site.baseurl }}/images/m.jpg" class="award-thumb" alt="">
-    <img src="{{ site.baseurl }}/images/p.jpg" class="award-thumb" alt="">
-    <img src="{{ site.baseurl }}/images/q.jpg" class="award-thumb" alt="">
+    <img src="/images/b.jpg" class="award-thumb" alt="Postgraduate award 1">
+    <img src="/images/f.jpg" class="award-thumb" alt="Postgraduate award 2">
+    <img src="/images/k.jpg" class="award-thumb" alt="Postgraduate award 3">
+    <img src="/images/m.jpg" class="award-thumb" alt="Postgraduate award 4">
+    <img src="/images/p.jpg" class="award-thumb" alt="Postgraduate award 5">
+    <img src="/images/q.jpg" class="award-thumb" alt="Postgraduate award 6">
+    <img src="/images/t.jpg" class="award-thumb" alt="Postgraduate award 7">
+    <img src="/images/g.jpg" class="award-thumb" alt="Postgraduate award 8">
+    <img src="/images/e.jpg" class="award-thumb" alt="Postgraduate award 9">
+    <img src="/images/c.jpg" class="award-thumb" alt="Postgraduate award 10">
+    <img src="/images/a.jpg" class="award-thumb" alt="Postgraduate award 11">
+    <img src="/images/i.jpg" class="award-thumb" alt="Postgraduate award 12">
   </div>
 </div>
 
@@ -157,9 +169,9 @@ h1 i {
 <div class="gallery-section">
   <h2>PhD</h2>
   <div class="awards-grid" id="phd-gallery">
-    <img src="{{ site.baseurl }}/images/t.jpg" class="award-thumb" alt="">
-    <img src="{{ site.baseurl }}/images/g.jpg" class="award-thumb" alt="">
-    <img src="{{ site.baseurl }}/images/e.jpg" class="award-thumb" alt="">
+    <img src="/images/i.jpg" class="award-thumb" alt="PhD award 1">
+    <img src="/images/i.jpg" class="award-thumb" alt="PhD award 2">
+    <img src="/images/i.jpg" class="award-thumb" alt="PhD award 3">
   </div>
 </div>
 
@@ -187,7 +199,8 @@ function openLightbox(galleryImages, index) {
   currentGallery = galleryImages;
   currentIndex = index;
   lightboxImg.src = currentGallery[currentIndex].src;
-  lightbox.classList.add('show');
+  lightbox.style.display = 'flex'; // Alternative to class
+  setTimeout(() => lightbox.classList.add('show'), 10);
 }
 
 // Show previous image
@@ -204,6 +217,7 @@ function showNext() {
 
 // Close lightbox
 function closeLightbox() {
+  lightbox.style.display = 'none';
   lightbox.classList.remove('show');
 }
 
@@ -218,6 +232,21 @@ document.querySelectorAll('.gallery-section').forEach(section => {
 // Navigation
 prevBtn.addEventListener('click', showPrev);
 nextBtn.addEventListener('click', showNext);
-closeBtn.addEventListener('click', e => { e.preventDefault(); closeLightbox(); });
-lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+closeBtn.addEventListener('click', e => { 
+  e.preventDefault(); 
+  closeLightbox(); 
+});
+
+// Close on background click or Escape key
+lightbox.addEventListener('click', e => { 
+  if (e.target === lightbox) closeLightbox(); 
+});
+
+document.addEventListener('keydown', e => {
+  if (lightbox.style.display === 'flex' || lightbox.classList.contains('show')) {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
+  }
+});
 </script>
