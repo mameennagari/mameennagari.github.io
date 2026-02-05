@@ -47,8 +47,10 @@ h1 i {
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.15);
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.3s ease, filter 0.3s ease, z-index 0.4s ease;
   transform-origin: center center;
+  position: relative;
+  z-index: 1;
 }
 
 .award-thumb:hover {
@@ -57,159 +59,26 @@ h1 i {
   filter: brightness(1.05);
 }
 
-/* === Lightbox Overlay === */
-.lightbox {
-  display: none;
+/* === Zoomed Image Styling === */
+.award-thumb.zoomed {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.95);
-  z-index: 9999;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.lightbox.active {
-  display: flex;
-  opacity: 1;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 85%;
-  border-radius: 10px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-  transform: scale(0.8);
-  opacity: 0;
-  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-              opacity 0.4s ease;
-}
-
-.lightbox.active img {
-  transform: scale(1);
-  opacity: 1;
-}
-
-/* Lightbox navigation buttons */
-.lightbox-nav {
-  position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-  user-select: none;
-  padding: 10px;
-  transition: all 0.3s ease;
-  z-index: 10000;
-  background: rgba(0,0,0,0.3);
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: translateY(-50%) scale(0.8);
-}
-
-.lightbox.active .lightbox-nav {
-  opacity: 1;
-  transform: translateY(-50%) scale(1);
-}
-
-.lightbox-nav:hover {
-  color: #ff7f0e;
-  background: rgba(0,0,0,0.7);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.lightbox-prev {
-  left: 30px;
-  transition-delay: 0.2s;
-}
-
-.lightbox-next {
-  right: 30px;
-  transition-delay: 0.3s;
-}
-
-.lightbox-close {
-  position: absolute;
-  top: 25px;
-  right: 40px;
-  color: #fff;
-  font-size: 32px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  z-index: 10000;
-  background: rgba(0,0,0,0.3);
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: scale(0.8);
-}
-
-.lightbox.active .lightbox-close {
-  opacity: 1;
-  transform: scale(1);
-  transition-delay: 0.1s;
-}
-
-.lightbox-close:hover {
-  color: #ff7f0e;
-  background: rgba(0,0,0,0.7);
-  transform: scale(1.1);
-}
-
-/* Image counter */
-.lightbox-counter {
-  position: absolute;
-  bottom: 30px;
   left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 16px;
-  background: rgba(0,0,0,0.5);
-  padding: 8px 16px;
-  border-radius: 20px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  width: auto;
+  height: 80%;
+  max-width: 90%;
+  max-height: 90%;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 9999;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border-radius: 10px;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
 }
 
-.lightbox.active .lightbox-counter {
-  opacity: 1;
-  transition-delay: 0.4s;
-}
-
+/* === Responsive Adjustments === */
 @media(max-width:600px) {
   .award-thumb {
     height: 140px;
-  }
-  .lightbox-nav {
-    font-size: 30px;
-    width: 50px;
-    height: 50px;
-  }
-  .lightbox-prev {
-    left: 15px;
-  }
-  .lightbox-next {
-    right: 15px;
-  }
-  .lightbox-close {
-    top: 15px;
-    right: 20px;
   }
 }
 </style>
@@ -223,9 +92,9 @@ h1 i {
     <img src="/images/u2.jpg" class="award-thumb" alt="Undergraduate award 1" data-index="0">
     <img src="/images/u1.jpg" class="award-thumb" alt="Undergraduate award 2" data-index="1">
     <img src="/images/u4.jpg" class="award-thumb" alt="Undergraduate award 3" data-index="2">
-    <img src="/images/u6.jpg" class="award-thumb" alt="Undergraduate award 1" data-index="0">
-    <img src="/images/u3.jpg" class="award-thumb" alt="Undergraduate award 2" data-index="1">
-    <img src="/images/o.jpg" class="award-thumb" alt="Undergraduate award 3" data-index="2">
+    <img src="/images/u6.jpg" class="award-thumb" alt="Undergraduate award 4" data-index="3">
+    <img src="/images/u3.jpg" class="award-thumb" alt="Undergraduate award 5" data-index="4">
+    <img src="/images/o.jpg" class="award-thumb" alt="Undergraduate award 6" data-index="5">
   </div>
 </div>
 
@@ -233,255 +102,70 @@ h1 i {
 <div class="gallery-section">
   <h2>Postgraduate</h2>
   <div class="awards-grid" id="postgrad-gallery">
-    <img src="/images/b.jpg" class="award-thumb" alt="Postgraduate award 1" data-index="3">
-    <img src="/images/f.jpg" class="award-thumb" alt="Postgraduate award 2" data-index="4">
-    <img src="/images/k.jpg" class="award-thumb" alt="Postgraduate award 3" data-index="5">
-    <img src="/images/m.jpg" class="award-thumb" alt="Postgraduate award 4" data-index="6">
-    <img src="/images/p.jpg" class="award-thumb" alt="Postgraduate award 5" data-index="7">
-    <img src="/images/q.jpg" class="award-thumb" alt="Postgraduate award 6" data-index="8">
-    <img src="/images/t.jpg" class="award-thumb" alt="Postgraduate award 7" data-index="9">
-    <img src="/images/g.jpg" class="award-thumb" alt="Postgraduate award 8" data-index="10">
-    <img src="/images/e.jpg" class="award-thumb" alt="Postgraduate award 9" data-index="11">
-    <img src="/images/c.jpg" class="award-thumb" alt="Postgraduate award 10" data-index="12">
-    <img src="/images/a.jpg" class="award-thumb" alt="Postgraduate award 11" data-index="13">
-    <img src="/images/i.jpg" class="award-thumb" alt="Postgraduate award 12" data-index="14">
-    <img src="/images/r.jpg" class="award-thumb" alt="Postgraduate award 10" data-index="15">
-    <img src="/images/n.jpg" class="award-thumb" alt="Postgraduate award 11" data-index="16">
-    <img src="/images/h.jpg" class="award-thumb" alt="Postgraduate award 12" data-index="17">
-    <img src="/images/i.jpg" class="award-thumb" alt="Postgraduate award 12" data-index="18">
+    <img src="/images/b.jpg" class="award-thumb" alt="Postgraduate award 1" data-index="6">
+    <img src="/images/f.jpg" class="award-thumb" alt="Postgraduate award 2" data-index="7">
+    <img src="/images/k.jpg" class="award-thumb" alt="Postgraduate award 3" data-index="8">
+    <img src="/images/m.jpg" class="award-thumb" alt="Postgraduate award 4" data-index="9">
+    <img src="/images/p.jpg" class="award-thumb" alt="Postgraduate award 5" data-index="10">
+    <img src="/images/q.jpg" class="award-thumb" alt="Postgraduate award 6" data-index="11">
+    <img src="/images/t.jpg" class="award-thumb" alt="Postgraduate award 7" data-index="12">
+    <img src="/images/g.jpg" class="award-thumb" alt="Postgraduate award 8" data-index="13">
+    <img src="/images/e.jpg" class="award-thumb" alt="Postgraduate award 9" data-index="14">
+    <img src="/images/c.jpg" class="award-thumb" alt="Postgraduate award 10" data-index="15">
+    <img src="/images/a.jpg" class="award-thumb" alt="Postgraduate award 11" data-index="16">
+    <img src="/images/i.jpg" class="award-thumb" alt="Postgraduate award 12" data-index="17">
+    <img src="/images/r.jpg" class="award-thumb" alt="Postgraduate award 13" data-index="18">
+    <img src="/images/n.jpg" class="award-thumb" alt="Postgraduate award 14" data-index="19">
+    <img src="/images/h.jpg" class="award-thumb" alt="Postgraduate award 15" data-index="20">
+    <img src="/images/i.jpg" class="award-thumb" alt="Postgraduate award 16" data-index="21">
   </div>
 </div>
 
 <!-- === PhD Section === -->
 <div class="gallery-section">
   <h2>PhD</h2>
-  <!-- <div class="awards-grid" id="phd-gallery">
-    <img src="/images/i.jpg" class="award-thumb" alt="PhD award 1" data-index="15">
-    <img src="/images/i.jpg" class="award-thumb" alt="PhD award 2" data-index="16">
-    <img src="/images/i.jpg" class="award-thumb" alt="PhD award 3" data-index="17"> -->
-  </div>
-</div>
-
-<!-- === Lightbox === -->
-<div id="lightbox" class="lightbox">
-  <a href="#" class="lightbox-close">&times;</a>
-  <span class="lightbox-nav lightbox-prev">&#10094;</span>
-  <span class="lightbox-nav lightbox-next">&#10095;</span>
-  <img id="lightbox-img" src="" alt="">
-  <div class="lightbox-counter">
-    <span id="current-index">1</span> / <span id="total-images">18</span>
+  <div class="awards-grid" id="phd-gallery">
+    <img src="/images/i.jpg" class="award-thumb" alt="PhD award 1" data-index="22">
+    <img src="/images/i.jpg" class="award-thumb" alt="PhD award 2" data-index="23">
+    <img src="/images/i.jpg" class="award-thumb" alt="PhD award 3" data-index="24">
   </div>
 </div>
 
 <script>
-// Lightbox functionality
-let currentGallery = [];
-let currentIndex = 0;
-
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const closeBtn = document.querySelector('.lightbox-close');
-const prevBtn = document.querySelector('.lightbox-prev');
-const nextBtn = document.querySelector('.lightbox-next');
-const currentIndexSpan = document.getElementById('current-index');
-const totalImagesSpan = document.getElementById('total-images');
-
-// Store clicked image position for zoom effect
-let clickedImageRect = null;
-
-// Collect ALL images from the page
+// === Click-to-Zoom Functionality ===
 const allImages = document.querySelectorAll('.award-thumb');
-totalImagesSpan.textContent = allImages.length;
+let zoomedImg = null;
 
-// Open lightbox with zoom effect
-function openLightbox(index) {
-  currentGallery = Array.from(allImages);
-  currentIndex = parseInt(index);
-  
-  // Get clicked image position
-  const clickedImage = currentGallery[currentIndex];
-  clickedImageRect = clickedImage.getBoundingClientRect();
-  
-  // Calculate initial position for zoom effect
-  const viewportWidth = window.innerWidth;
-  const viewportHeight = window.innerHeight;
-  
-  // Set initial transform for zoom effect
-  lightboxImg.style.transform = `translate(${clickedImageRect.left}px, ${clickedImageRect.top}px) scale(${clickedImageRect.width / viewportWidth})`;
-  lightboxImg.style.borderRadius = '12px'; // Match thumbnail border radius
-  lightboxImg.style.transition = 'none'; // Disable transition for initial positioning
-  
-  // Set the image source
-  lightboxImg.src = clickedImage.src;
-  lightboxImg.alt = clickedImage.alt;
-  
-  // Show lightbox
-  lightbox.classList.add('active');
-  document.body.style.overflow = 'hidden';
-  
-  // Update counter
-  updateCounter();
-  
-  // Force reflow for transition
-  void lightboxImg.offsetWidth;
-  
-  // Enable transition and zoom to center
-  lightboxImg.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-radius 0.5s ease, opacity 0.4s ease';
-  lightboxImg.style.transform = 'translate(0, 0) scale(1)';
-  lightboxImg.style.borderRadius = '10px';
-  lightboxImg.style.opacity = '1';
-}
-
-// Update image counter
-function updateCounter() {
-  currentIndexSpan.textContent = currentIndex + 1;
-}
-
-// Show previous image with slide effect
-function showPrev() {
-  if (currentGallery.length === 0) return;
-  
-  currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-  
-  // Slide out animation
-  lightboxImg.style.transform = 'translateX(100px) scale(0.8)';
-  lightboxImg.style.opacity = '0';
-  
-  setTimeout(() => {
-    lightboxImg.src = currentGallery[currentIndex].src;
-    lightboxImg.alt = currentGallery[currentIndex].alt;
-    updateCounter();
-    
-    // Slide in animation
-    lightboxImg.style.transform = 'translateX(-100px) scale(0.8)';
-    void lightboxImg.offsetWidth; // Force reflow
-    
-    lightboxImg.style.transform = 'translateX(0) scale(1)';
-    lightboxImg.style.opacity = '1';
-  }, 200);
-}
-
-// Show next image with slide effect
-function showNext() {
-  if (currentGallery.length === 0) return;
-  
-  currentIndex = (currentIndex + 1) % currentGallery.length;
-  
-  // Slide out animation
-  lightboxImg.style.transform = 'translateX(-100px) scale(0.8)';
-  lightboxImg.style.opacity = '0';
-  
-  setTimeout(() => {
-    lightboxImg.src = currentGallery[currentIndex].src;
-    lightboxImg.alt = currentGallery[currentIndex].alt;
-    updateCounter();
-    
-    // Slide in animation
-    lightboxImg.style.transform = 'translateX(100px) scale(0.8)';
-    void lightboxImg.offsetWidth; // Force reflow
-    
-    lightboxImg.style.transform = 'translateX(0) scale(1)';
-    lightboxImg.style.opacity = '1';
-  }, 200);
-}
-
-// Close lightbox with reverse zoom effect
-function closeLightbox() {
-  if (!clickedImageRect) {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = 'auto';
-    return;
-  }
-  
-  // Calculate final position for reverse zoom
-  const viewportWidth = window.innerWidth;
-  const viewportHeight = window.innerHeight;
-  
-  // Start reverse zoom animation
-  lightboxImg.style.transform = `translate(${clickedImageRect.left}px, ${clickedImageRect.top}px) scale(${clickedImageRect.width / viewportWidth})`;
-  lightboxImg.style.borderRadius = '12px';
-  lightboxImg.style.opacity = '0';
-  
-  // Hide lightbox after animation completes
-  setTimeout(() => {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = 'auto';
-    
-    // Reset transform for next opening
-    lightboxImg.style.transform = 'scale(0.8)';
-    lightboxImg.style.opacity = '0';
-    lightboxImg.style.borderRadius = '10px';
-    lightboxImg.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-radius 0.5s ease, opacity 0.4s ease';
-  }, 500);
-}
-
-// Add click event to ALL images
-allImages.forEach((img) => {
-  img.addEventListener('click', function() {
-    const index = this.getAttribute('data-index');
-    openLightbox(index);
-  });
-});
-
-// Navigation buttons
-prevBtn.addEventListener('click', function(e) {
-  e.stopPropagation();
-  showPrev();
-});
-
-nextBtn.addEventListener('click', function(e) {
-  e.stopPropagation();
-  showNext();
-});
-
-// Close button
-closeBtn.addEventListener('click', function(e) {
-  e.preventDefault();
-  e.stopPropagation();
-  closeLightbox();
-});
-
-// Close when clicking on the background
-lightbox.addEventListener('click', function(e) {
-  if (e.target === lightbox) {
-    closeLightbox();
-  }
-});
-
-// Keyboard navigation
-document.addEventListener('keydown', function(e) {
-  if (lightbox.classList.contains('active')) {
-    e.preventDefault();
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') showPrev();
-    if (e.key === 'ArrowRight') showNext();
-  }
-});
-
-// Handle window resize
-window.addEventListener('resize', function() {
-  if (lightbox.classList.contains('active')) {
-    // Recalculate clicked image position on resize
-    const clickedImage = currentGallery[currentIndex];
-    if (clickedImage) {
-      clickedImageRect = clickedImage.getBoundingClientRect();
-    }
-  }
-});
-
-// Optional: Add loading state for images
 allImages.forEach(img => {
-  img.addEventListener('load', function() {
-    this.style.opacity = '1';
+  img.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent triggering document click
+
+    // If another image is zoomed, reset it
+    if (zoomedImg && zoomedImg !== img) {
+      zoomedImg.classList.remove('zoomed');
+      document.body.style.overflow = 'auto';
+      zoomedImg = null;
+    }
+
+    // Toggle zoom on current image
+    if (img.classList.contains('zoomed')) {
+      img.classList.remove('zoomed');
+      document.body.style.overflow = 'auto';
+      zoomedImg = null;
+    } else {
+      img.classList.add('zoomed');
+      document.body.style.overflow = 'hidden'; // prevent scrolling when zoomed
+      zoomedImg = img;
+    }
   });
-  
-  img.addEventListener('error', function() {
-    console.error('Failed to load image:', this.src);
-    this.style.border = '2px solid red';
-    this.alt = 'Image failed to load';
-  });
-  
-  img.style.opacity = '0';
-  img.style.transition = 'opacity 0.3s ease';
+});
+
+// Close zoomed image by clicking anywhere outside
+document.addEventListener('click', () => {
+  if (zoomedImg) {
+    zoomedImg.classList.remove('zoomed');
+    document.body.style.overflow = 'auto';
+    zoomedImg = null;
+  }
 });
 </script>
