@@ -6,48 +6,81 @@ author_profile: true
 <hr>
 
 <style>
-/* Award grid */
+/* === General Styles === */
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #333;
+}
+
+h1 i {
+  color: #ff7f0e;
+  margin-right: 8px;
+}
+
+/* === Section Containers === */
+.gallery-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 15px;
+}
+
+/* === Grid for Thumbnails === */
 .awards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 22px;
+  gap: 20px;
 }
 
-/* Thumbnail */
+/* === Thumbnail Styling === */
 .award-thumb {
   width: 100%;
   height: 160px;
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-  cursor: zoom-in;
-  transition: transform 0.25s ease;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
 }
 
 .award-thumb:hover {
-  transform: scale(1.04);
+  transform: scale(1.06);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  filter: brightness(1.05);
 }
 
-/* Lightbox */
+/* === Lightbox Overlay === */
 .lightbox {
   display: none;
   position: fixed;
-  z-index: 9999;
   inset: 0;
-  background: rgba(0,0,0,0.85);
-  padding-top: 60px;
+  background: rgba(0,0,0,0.9);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .lightbox img {
-  margin: auto;
-  display: block;
   max-width: 90%;
   max-height: 85%;
-  border-radius: 8px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
 }
 
-.lightbox:target {
-  display: block;
+.lightbox img:hover {
+  transform: scale(1.02);
+}
+
+.lightbox.show {
+  display: flex;
 }
 
 .lightbox-close {
@@ -56,95 +89,125 @@ author_profile: true
   right: 35px;
   color: #fff;
   font-size: 32px;
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.lightbox-close:hover {
+  color: #ff7f0e;
+}
+
+/* === Caption Styling === */
+.caption {
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  color: #555;
+}
+
+.subcaption {
+  font-size: 12px;
+  color: #888;
+}
+
+/* === Responsive === */
+@media(max-width:600px) {
+  .award-thumb {
+    height: 140px;
+  }
 }
 </style>
 
-<h1> <i class="fas fa-award" style="color:#ff7f0e; margin-right:8px;"></i>
-  Selected Awards and Honors </h1>
-<div class="awards-grid">
+<h1><i class="fas fa-award"></i> Academic Gallery</h1>
 
-  <!-- Award 1 -->
-  <div style="text-align:center;">
-    <a href="#award-thesis">
-      <img src="/images/3.jpg" class="award-thumb" alt="Outstanding Master's Thesis Award">
-    </a>
-    <p style="margin-top:10px; font-weight:600;">Outstanding Master’s Thesis Award</p>
-    <p style="font-size:14px; color:#666;">Dalian University of Technology, 2025</p>
+<!-- === Undergraduate Section === -->
+<div class="gallery-section">
+  <h2>Undergraduate</h2>
+  <div class="awards-grid" id="undergrad-gallery">
+    <div style="text-align:center;">
+      <img src="/images/undergrad1.jpg" class="award-thumb" alt="Undergrad Image 1" data-caption="Graduation Ceremony 2020 - DUT">
+      <p class="caption">Graduation Ceremony</p>
+      <p class="subcaption">DUT, 2020</p>
+    </div>
+    <div style="text-align:center;">
+      <img src="/images/undergrad2.jpg" class="award-thumb" alt="Undergrad Image 2" data-caption="Research Presentation 2019 - DUT">
+      <p class="caption">Research Presentation</p>
+      <p class="subcaption">DUT, 2019</p>
+    </div>
   </div>
-
-  <!-- Award 2 -->
-  <div style="text-align:center;">
-    <a href="#award-graduate">
-      <img src="/images/4.jpg" class="award-thumb" alt="Outstanding Graduate Award">
-    </a>
-    <p style="margin-top:10px; font-weight:600;">Outstanding Graduate Award (Top 5%)</p>
-    <p style="font-size:14px; color:#666;">DUT, 2025</p>
-  </div>
-
-  <!-- Award 3 -->
-  <div style="text-align:center;">
-    <a href="#award-challengecup">
-      <img src="/images/2.jpg" class="award-thumb" alt="Challenge Cup Special Prize">
-    </a>
-    <p style="margin-top:10px; font-weight:600;">Special Prize – Challenge Cup</p>
-    <p style="font-size:14px; color:#666;">Liaoning Province, 2025</p>
-  </div>
-
-  <!-- Award 4 -->
-  <div style="text-align:center;">
-    <a href="#award-forum">
-      <img src="/images/1.jpg" class="award-thumb" alt="Graduate Academic Forum">
-    </a>
-    <p style="margin-top:10px; font-weight:600;">First Prize – Graduate Academic Forum</p>
-    <p style="font-size:14px; color:#666;">National Level, 2025</p>
-  </div>
-
-  <!-- Award 5 -->
-  <div style="text-align:center;">
-    <a href="#award-ai">
-      <img src="/images/1.jpg" class="award-thumb" alt="AI Competition Award">
-    </a>
-    <p style="margin-top:10px; font-weight:600;">Second Prize – AI+ Track</p>
-    <p style="font-size:14px; color:#666;">China Mobile National Competition, 2025</p>
-  </div>
-
-  <!-- Award 6 -->
-  <div style="text-align:center;">
-    <a href="#award-gold">
-      <img src="/images/6.jpg" class="award-thumb" alt="Gold Medal Innovation Competition">
-    </a>
-    <p style="margin-top:10px; font-weight:600;">Gold Medal – Innovation Competition</p>
-    <p style="font-size:14px; color:#666;">Liaoning Province Edu, 2024</p>
-  </div>
-
-  <!-- Award 7 -->
-  <div style="text-align:center;">
-    <a href="#award-academicstar">
-      <img src="/images/1.jpg" class="award-thumb" alt="Academic Star Award">
-    </a>
-    <p style="margin-top:10px; font-weight:600;">Academic Star Award</p>
-    <p style="font-size:14px; color:#666;">DUT, 2024</p>
-  </div>
-
-  <!-- Award 8 -->
-  <div style="text-align:center;">
-    <a href="#award-sessionchair">
-      <img src="/images/5.jpg" class="award-thumb" alt="Session Chair Certificate">
-    </a>
-    <p style="margin-top:10px; font-weight:600;">Session Chair</p>
-    <p style="font-size:14px; color:#666;">IEEE MSN, 2024</p>
-  </div>
-
 </div>
 
-<!-- Lightboxes -->
-<div id="award-thesis" class="lightbox"><a href="#" class="lightbox-close">&times;</a><img src="/images/3.jpg"></div>
-<div id="award-graduate" class="lightbox"><a href="#" class="lightbox-close">&times;</a><img src="/images/4.jpg"></div>
-<div id="award-challengecup" class="lightbox"><a href="#" class="lightbox-close">&times;</a><img src="/images/2.jpg"></div>
-<div id="award-forum" class="lightbox"><a href="#" class="lightbox-close">&times;</a><img src="/images/1.jpg"></div>
-<div id="award-ai" class="lightbox"><a href="#" class="lightbox-close">&times;</a><img src="/images/1.jpg"></div>
-<div id="award-gold" class="lightbox"><a href="#" class="lightbox-close">&times;</a><img src="/images/6.jpg"></div>
-<div id="award-academicstar" class="lightbox"><a href="#" class="lightbox-close">&times;</a><img src="/images/1.jpg"></div>
-<div id="award-sessionchair" class="lightbox"><a href="#" class="lightbox-close">&times;</a><img src="/images/5.jpg"></div>
+<!-- === Postgraduate Section === -->
+<div class="gallery-section">
+  <h2>Postgraduate</h2>
+  <div class="awards-grid" id="postgrad-gallery">
+    <div style="text-align:center;">
+      <img src="/images/postgrad1.jpg" class="award-thumb" alt="Postgrad Image 1" data-caption="Master Thesis Defense 2023">
+      <p class="caption">Thesis Defense</p>
+      <p class="subcaption">DUT, 2023</p>
+    </div>
+    <div style="text-align:center;">
+      <img src="/images/postgrad2.jpg" class="award-thumb" alt="Postgrad Image 2" data-caption="Conference Presentation 2022">
+      <p class="caption">Conference Presentation</p>
+      <p class="subcaption">National Level, 2022</p>
+    </div>
+  </div>
+</div>
+
+<!-- === PhD Section === -->
+<div class="gallery-section">
+  <h2>PhD</h2>
+  <div class="awards-grid" id="phd-gallery">
+    <div style="text-align:center;">
+      <img src="/images/phd1.jpg" class="award-thumb" alt="PhD Image 1" data-caption="PhD Defense 2025">
+      <p class="caption">PhD Defense</p>
+      <p class="subcaption">DUT, 2025</p>
+    </div>
+    <div style="text-align:center;">
+      <img src="/images/phd2.jpg" class="award-thumb" alt="PhD Image 2" data-caption="International Conference 2024">
+      <p class="caption">International Conference</p>
+      <p class="subcaption">2024</p>
+    </div>
+  </div>
+</div>
+
+<!-- === Lightbox === -->
+<div id="lightbox" class="lightbox">
+  <a href="#" class="lightbox-close">&times;</a>
+  <img id="lightbox-img" src="" alt="">
+  <p id="lightbox-caption" style="color:#fff; text-align:center; margin-top:10px;"></p>
+</div>
+
+<script>
+// Select all thumbnails
+const thumbnails = document.querySelectorAll('.award-thumb');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+const closeBtn = document.querySelector('.lightbox-close');
+
+// Show lightbox on click
+thumbnails.forEach(img => {
+  img.addEventListener('click', () => {
+    lightbox.classList.add('show');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxCaption.textContent = img.dataset.caption || img.alt;
+  });
+});
+
+// Close lightbox
+closeBtn.addEventListener('click', e => {
+  e.preventDefault();
+  lightbox.classList.remove('show');
+});
+
+// Close by clicking outside the image
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove('show');
+  }
+});
+</script>
