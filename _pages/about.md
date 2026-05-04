@@ -21,9 +21,6 @@ Hi, I am a researcher focused on privacy-preserving distributed machine learning
 I am currently seeking a **PhD research position** to further advance research on **trustworthy, privacy-preserving, and federated semantic communication**, with the long-term goal of contributing impactful theoretical and applied research to next-generation intelligent and distributed computing infrastructures.
 
 ### <i class="fas fa-newspaper" style="color:#C0392B;"></i> *Latest Updates*
-
-    <strong class="blink">April 2026</strong> — <em> Our paper "Electrohydrodynamic and Double Diffusive Convection of Casson Fluid in Symmetric Tapered Channel" has been published in <em>ASME Journal of Heat and Mass Transfer</em> </em>
-
 <div class="news-box">
   <span class="star">★</span>
   <p class="news-text">
