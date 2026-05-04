@@ -20,7 +20,62 @@ Hi, I am a researcher focused on privacy-preserving distributed machine learning
 
 I am currently seeking a **PhD research position** to further advance research on **trustworthy, privacy-preserving, and federated semantic communication**, with the long-term goal of contributing impactful theoretical and applied research to next-generation intelligent and distributed computing infrastructures.
 
+### <i class="fas fa-newspaper" style="color:#C0392B;"></i> *News*
 
+<div class="news-box">
+  <span class="star">★</span>
+  <p class="news-text">
+    <strong>April 2026</strong> — 
+    <em>Electrohydrodynamic and Double Diffusive Convection of Casson Fluid in Symmetric Tapered Channel</em>, 
+    S. Batool, D. Bo, S. Noreen, D. Ali, M. Ameen, published in 
+    <span class="journal">ASME Journal of Heat and Mass Transfer</span>.
+  </p>
+</div>
+
+<style>
+/* Highlight container */
+.news-box {
+  position: relative;
+  background: #FFF9E6;
+  border-left: 5px solid #F1C40F;
+  padding: 15px 15px 15px 70px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+/* Distinct typography */
+.news-text {
+  margin: 0;
+  font-family: "Georgia", "Times New Roman", serif; /* academic serif */
+  font-size: 16px;
+  line-height: 1.7;
+  color: #2C3E50;
+}
+
+/* Journal emphasis */
+.journal {
+  font-weight: bold;
+  letter-spacing: 0.3px;
+}
+
+/* Large animated star */
+.star {
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  font-size: 48px;
+  color: #F1C40F;
+  text-shadow: 0 0 12px rgba(241, 196, 15, 0.9);
+  animation: starPulse 1.6s infinite ease-in-out;
+}
+
+/* Smooth animation */
+@keyframes starPulse {
+  0%   { transform: scale(1) translateY(0px); }
+  50%  { transform: scale(1.25) translateY(-4px); }
+  100% { transform: scale(1) translateY(0px); }
+}
+</style>
 ## <i class="fas fa-brain" style="color:#8E44AD;"></i> Research Interests
 
 - Distributed machine learning  
@@ -74,56 +129,3 @@ I am currently seeking a **PhD research position** to further advance research o
 ### <i class="fas fa-chalkboard-teacher" style="color:#AF7AC5;"></i> *Conference Organization*
 - Session Chair, IEEE International Conference on Mobility, Sensing and Networking (MSN)
 
-
-### <i class="fas fa-newspaper" style="color:#C0392B;"></i> *Latest Updates*
-<ul class="news-list">
-   <li class="highlight">
-    <span class="star">★</span>
-    <strong class="blink">April 2026</strong> — <em> Our paper "Electrohydrodynamic and Double Diffusive Convection of Casson Fluid in Symmetric Tapered Channel" has been published in <em>ASME Journal of Heat and Mass Transfer</em> </em>
-  </li>
-</ul>
-
-<style>
-.news-list {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.news-list li {
-  margin-bottom: 14px;
-  line-height: 1.6;
-}
-
-/* Highlighted item */
-.highlight {
-  position: relative;
-  padding-left: 60px; /* more space for large star */
-}
-
-/* Large animated star */
-.star {
-  position: absolute;
-  left: 0;
-  top: -2px;
-  font-size: 40px;  /* increased size */
-  color: #F1C40F;
-  text-shadow: 0 0 8px rgba(241, 196, 15, 0.8);
-  animation: starPulse 1.6s infinite ease-in-out;
-}
-
-/* Smooth pulse + slight float */
-@keyframes starPulse {
-  0% {
-    transform: scale(1) translateY(0px);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.25) translateY(-4px);
-    opacity: 0.85;
-  }
-  100% {
-    transform: scale(1) translateY(0px);
-    opacity: 1;
-  }
-}
-</style>
