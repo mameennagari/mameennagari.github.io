@@ -79,8 +79,7 @@ I am currently seeking a **PhD research position** to further advance research o
 <ul class="news-list">
    <li class="highlight">
     <span class="star">★</span>
-    <strong class="blink">April 2026</strong> — <em>Electrohydrodynamic and Double Diffusive Convection of Casson Fluid in Symmetric Tapered Channel</em>, 
-    S. Batool, D. Bo, S. Noreen, D. Ali, M. Ameen, published in <em>ASME Journal of Heat and Mass Transfer</em>.
+    <strong class="blink">April 2026</strong> — <em> Our paper "Electrohydrodynamic and Double Diffusive Convection of Casson Fluid in Symmetric Tapered Channel" has been published in <em>ASME Journal of Heat and Mass Transfer</em> </em>
   </li>
 </ul>
 
