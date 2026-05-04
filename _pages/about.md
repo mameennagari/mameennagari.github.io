@@ -129,3 +129,56 @@ I am currently seeking a **PhD research position** to further advance research o
   vertical-align: middle;
 }
 </style>
+
+### <i class="fas fa-newspaper" style="color:#C0392B;"></i> *News*
+
+<ul class="news-list">
+  <li class="highlight">
+    <span class="star">★</span>
+    <strong>May 2026</strong> — Our paper on <em>privacy-preserving federated unlearning with robustness guarantees</em> has been accepted for publication in <em>IEEE Transactions on Mobile Computing</em>.
+  </li>
+</ul>
+
+<style>
+.news-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.news-list li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+/* Highlighted item */
+.highlight {
+  position: relative;
+  padding-left: 30px;
+}
+
+/* Animated star */
+.star {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 20px;
+  color: #F1C40F;
+  animation: starPulse 1.5s infinite ease-in-out;
+}
+
+/* Smooth pulsing animation (scale + slight movement) */
+@keyframes starPulse {
+  0% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3) translateY(-3px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+  }
+}
+</style>
