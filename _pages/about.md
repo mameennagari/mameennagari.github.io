@@ -128,4 +128,3 @@ I am currently seeking a **PhD research position** to further advance research o
 
 ### <i class="fas fa-chalkboard-teacher" style="color:#AF7AC5;"></i> *Conference Organization*
 - Session Chair, IEEE International Conference on Mobility, Sensing and Networking (MSN)
-
