@@ -130,12 +130,21 @@ I am currently seeking a **PhD research position** to further advance research o
 }
 </style>
 
-### <i class="fas fa-newspaper" style="color:#C0392B;"></i> *News*
+### <i class="fas fa-newspaper" style="color:#C0392B;"></i> *Latest Updates*
 
 <ul class="news-list">
   <li class="highlight">
     <span class="star">★</span>
     <strong>May 2026</strong> — Our paper on <em>privacy-preserving federated unlearning with robustness guarantees</em> has been accepted for publication in <em>IEEE Transactions on Mobile Computing</em>.
+  </li>
+  <li>
+    <strong>April 2026</strong> — Presented recent work on <em>federated semantic communication frameworks</em> at IEEE/ACM IWQoS.
+  </li>
+  <li>
+    <strong>March 2026</strong> — Served as a reviewer for <em>IEEE TIFS</em> and <em>Neural Networks (Elsevier)</em>.
+  </li>
+  <li>
+    <strong>January 2026</strong> — Received the <strong>Outstanding Graduate Award (Top 5%)</strong>.
   </li>
 </ul>
 
@@ -146,35 +155,36 @@ I am currently seeking a **PhD research position** to further advance research o
 }
 
 .news-list li {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   line-height: 1.6;
 }
 
 /* Highlighted item */
 .highlight {
   position: relative;
-  padding-left: 30px;
+  padding-left: 60px; /* more space for large star */
 }
 
-/* Animated star */
+/* Large animated star */
 .star {
   position: absolute;
   left: 0;
-  top: 2px;
-  font-size: 20px;
+  top: -2px;
+  font-size: 40px;  /* increased size */
   color: #F1C40F;
-  animation: starPulse 1.5s infinite ease-in-out;
+  text-shadow: 0 0 8px rgba(241, 196, 15, 0.8);
+  animation: starPulse 1.6s infinite ease-in-out;
 }
 
-/* Smooth pulsing animation (scale + slight movement) */
+/* Smooth pulse + slight float */
 @keyframes starPulse {
   0% {
     transform: scale(1) translateY(0px);
     opacity: 1;
   }
   50% {
-    transform: scale(1.3) translateY(-3px);
-    opacity: 0.8;
+    transform: scale(1.25) translateY(-4px);
+    opacity: 0.85;
   }
   100% {
     transform: scale(1) translateY(0px);
