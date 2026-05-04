@@ -169,11 +169,12 @@
       <li><a href="https://www.zhihu.com/people/{{ author.zhihu }}"><i class="fab fa-fw fa-zhihu icon-pad-right" aria-hidden="true"></i>Zhihu</a></li>
       {% endif %}    
        {% if author.email %}
-  <li>
-    <i class="fas fa-fw fa-envelope">
-    <a href="mailto:{{ author.email }}">{{ author.email }}</a> </i>
-  </li>
-  {% endif %}
+<li class="email-inline">
+  <a href="mailto:{{ author.email }}">
+    <i class="fas fa-fw fa-envelope icon-pad-right"></i>{{ author.email }}
+  </a>
+</li>
+{% endif %}
     </ul>
   </div>
 </div>
