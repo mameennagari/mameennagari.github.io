@@ -74,4 +74,58 @@ I am currently seeking a **PhD research position** to further advance research o
 ### <i class="fas fa-chalkboard-teacher" style="color:#AF7AC5;"></i> *Conference Organization*
 - Session Chair, IEEE International Conference on Mobility, Sensing and Networking (MSN)  
 
+### <i class="fas fa-newspaper" style="color:#C0392B;"></i> *News* 
+<span class="blink">● Latest Updates</span>
 
+<ul class="news-list">
+  <li>
+    <strong>May 2026</strong> — Our paper on <em>privacy-preserving federated unlearning with robustness guarantees</em> has been accepted for publication in <em>IEEE Transactions on Mobile Computing</em>.
+    <span class="badge-new">NEW</span>
+  </li>
+  <li>
+    <strong>April 2026</strong> — Presented recent work on <em>federated semantic communication frameworks</em> at IEEE/ACM IWQoS.
+  </li>
+  <li>
+    <strong>March 2026</strong> — Served as a reviewer for <em>IEEE TIFS</em> and <em>Neural Networks (Elsevier)</em>.
+  </li>
+  <li>
+    <strong>January 2026</strong> — Received the <strong>Outstanding Graduate Award (Top 5%)</strong>.
+  </li>
+</ul>
+
+<style>
+.news-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.news-list li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Blinking dot indicator */
+.blink {
+  color: #C0392B;
+  font-weight: bold;
+  margin-left: 10px;
+  animation: blink-animation 1.2s infinite;
+}
+
+@keyframes blink-animation {
+  0% { opacity: 1; }
+  50% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
+/* NEW badge */
+.badge-new {
+  background-color: #E74C3C;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  margin-left: 8px;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+</style>
