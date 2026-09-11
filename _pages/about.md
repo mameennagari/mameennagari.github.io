@@ -16,9 +16,9 @@ redirect_from:
 </style>
 
 
-Hi, I am a researcher focused on privacy-preserving distributed machine learning, with particular expertise in Federated Learning, Federated Unlearning, and Semantic Communication. I obtained my *Master of Science in Computer Science and Technology* from [Dalian University of Technology, China](https://www.dlut.edu.cn/), where my research focused on federated learning and unlearning. My work has been published in leading journals and conferences, including *IEEE Transactions on Mobile Computing*, *Neural Networks*, *IEEE Transactions on Sustainable Computing*, and *IEEE/ACM IWQoS*. I have received multiple academic distinctions, including the **Outstanding Master’s Thesis Award** and **Outstanding Graduate Award**, and I actively serve as a reviewer for top-tier IEEE, Elsevier, and ACM venues.  
+I am a PhD student in **Electrical and Computer Engineering (Software Engineering) at Carleton University, Canada**, supported by the **Canada Impact+ Research Training Award**. My research focuses on **privacy-preserving distributed machine learning, Federated Learning, Federated Unlearning, and Semantic Communication**, with an emphasis on trustworthy and communication-efficient intelligent systems.
 
-I am currently seeking a **PhD research position** to further advance research on **trustworthy, privacy-preserving, and federated semantic communication**, with the long-term goal of contributing impactful theoretical and applied research to next-generation intelligent and distributed computing infrastructures.
+I received my **M.S. in Computer Science and Technology** from [Dalian University of Technology, China](https://www.dlut.edu.cn/), where I conducted research on federated learning and machine unlearning. My research has been published in journals and conferences including *IEEE Transactions on Mobile Computing*, *Neural Networks*, *IEEE Transactions on Sustainable Computing*, and *IEEE/ACM IWQoS*. I have also received several academic distinctions, including the **Outstanding Master’s Thesis Award** and **Outstanding Graduate Award**, and serve as a reviewer for IEEE, Elsevier, and ACM journals and conferences.
 
 ### <i class="fas fa-newspaper" style="color:#C0392B;"></i> *Latest Updates*
 <div class="news-box">
