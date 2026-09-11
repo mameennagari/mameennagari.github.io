@@ -16,17 +16,18 @@ redirect_from:
 </style>
 
 
-I am a PhD student in **Electrical and Computer Engineering (Software Engineering) at Carleton University, Canada**, supported by the **Canada Impact+ Research Training Award**. My research focuses on **privacy-preserving distributed machine learning, Federated Learning, Federated Unlearning, and Semantic Communication**, with an emphasis on trustworthy and communication-efficient intelligent systems.
-
-I received my **M.S. in Computer Science and Technology** from [Dalian University of Technology, China](https://www.dlut.edu.cn/), where I conducted research on federated learning and machine unlearning. My research has been published in journals and conferences including *IEEE Transactions on Mobile Computing*, *Neural Networks*, *IEEE Transactions on Sustainable Computing*, and *IEEE/ACM IWQoS*. I have also received several academic distinctions, including the **Outstanding Master’s Thesis Award** and **Outstanding Graduate Award**, and serve as a reviewer for IEEE, Elsevier, and ACM journals and conferences.
+I am a PhD student in **Electrical and Computer Engineering (Software Engineering) at Carleton University, Canada** with research focuses on **Federated Learning, Federated Unlearning, and Semantic Communication**. I am a recipient of the **Canada Impact+ Research Training Award (CIRTA)**, a highly competitive doctoral research award supporting my PhD studies.
+I received my **M.S. in Computer Science and Technology** from [Dalian University of Technology, China](https://www.dlut.edu.cn/), where I conducted research on federated learning and unlearning. My research has been published in journals and conferences including *IEEE Transactions on Mobile Computing*, *Neural Networks*, *IEEE Transactions on Sustainable Computing*, and *IEEE/ACM IWQoS*. I have also received several academic distinctions, including the **Outstanding Master’s Thesis Award** and **Outstanding Graduate Award**, and serve as a reviewer for IEEE, Elsevier, and ACM journals and conferences.
 
 ### <i class="fas fa-newspaper" style="color:#C0392B;"></i> *Latest Updates*
 <div class="news-box">
   <span class="star">★</span>
   <p class="news-text">
-    <strong>April 2026</strong> — 
-    <em> Our paper "Electrohydrodynamic and Double Diffusive Convection of Casson Fluid in Symmetric Tapered Channel" has been published in</em>
-    <span class="journal">ASME Journal of Heat and Mass Transfer</span>.
+    <strong>September 2026</strong> — 
+    <em>Joined</em> <span class="journal">Carleton University, Canada</span> 
+    as a PhD student in <strong>Electrical and Computer Engineering (Software Engineering)</strong> 
+    and received the prestigious <strong>Canada Impact+ Research Training Award (CIRTA)</strong> 
+    for doctoral research.
   </p>
 </div>
 
