@@ -17,6 +17,7 @@ redirect_from:
 
 
 I am a PhD student in **Electrical and Computer Engineering (Software Engineering) at Carleton University, Canada** with research focuses on **Federated Learning, Federated Unlearning, and Semantic Communication**. I am a recipient of the **Canada Impact+ Research Training Award (CIRTA)**, a highly competitive doctoral research award supporting my PhD studies.
+
 I received my **M.S. in Computer Science and Technology** from [Dalian University of Technology, China](https://www.dlut.edu.cn/), where I conducted research on federated learning and unlearning. My research has been published in journals and conferences including *IEEE Transactions on Mobile Computing*, *Neural Networks*, *IEEE Transactions on Sustainable Computing*, and *IEEE/ACM IWQoS*. I have also received several academic distinctions, including the **Outstanding Master’s Thesis Award** and **Outstanding Graduate Award**, and serve as a reviewer for IEEE, Elsevier, and ACM journals and conferences.
 
 ### <i class="fas fa-newspaper" style="color:#C0392B;"></i> *Latest Updates*
